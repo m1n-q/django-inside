@@ -1,3 +1,4 @@
+from posixpath import splitext
 import sys
 
 
@@ -23,8 +24,9 @@ def search_all(arg: str) -> None:
 	for s in strs:
 		if not s:
 			continue
+		s2 = ' '.join(s.split())
 		for state, captial in new_dict.items():
-			if s.lower() == state.lower() or s.lower() == captial.lower():
+			if s2.lower() == state.lower() or s2.lower() == captial.lower():
 				print(captial, "is the capital of", state)
 				break
 		else:
