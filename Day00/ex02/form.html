@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title> Day00 - ex02</title>
+		<meta charset="utf-8">
+		<title> Day00 - ex02 </title>
 		<script src="popup.js"></script>
 		<style>
 			label {
@@ -16,30 +17,35 @@
 		</style>
 	</head>
 	<body>
+		<header>
+			<h1>Information</h1>
+			<hr>
+		</header>
 		<section>
+			<h2>Format</h2>
 			<form>
 				<label for="firstname">First Name</label>
-				<input id="firstname" type="text" name="firstname"><br>
+				<input id="firstname" type="text"><br>
 
 				<label for="name">Name</label>
-				<input id="name" type="text" name="name"><br>
+				<input id="name" type="text"><br>
 
 				<label for="age">Age</label>
-				<input id="age" type="number" name="age" min=0><br>
+				<input id="age" type="number" min=0><br>
 
 				<label for="phone">Phone number</label>
-				<input id="phone" type="tel" name="phone"><br>
+				<input id="phone" type="tel"><br>
 
 				<label for="email">E-mail</label>
-				<input id="email" type="email" name="email"><br>
+				<input id="email" type="email"><br>
 
-				<label for="is42">Student at 42</label>
-				<input id="student" type="checkbox" name="is42"><br>
+				<label for="student">Student at 42</label>
+				<input id="student" type="checkbox"><br>
 
-				<label for="gender">Gender</label>
-				<input id="gender_male" type="radio" name="gender" value="male">Male
-				<input id="gender_female" type="radio" name="gender" value="female">Female
-				<input id="gender_other"type="radio" name="gender" value="other">Other<br>
+				<label for="gender_male">Gender</label>
+				<input id="gender_male" type="radio" value="male">Male
+				<input id="gender_female" type="radio" value="female">Female
+				<input id="gender_other" type="radio" value="other">Other<br>
 
 				<input type="button" name="submission" value="Submit" onclick="displayFormContents()">
 			</form>
