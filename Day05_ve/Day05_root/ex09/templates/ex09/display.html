@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}EX09: display {% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/table.css' %}">{% endblock %}
+{% block content %}
+<div class="container">
+	{% if people %}
+	<div class="data" id="json">
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Homeworld</th>
+					<th>Climate</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for p in people %}
+				<tr>
+					<td style="text-align: center;">{{p.name}}</td>
+					<td style="text-align: center;">{{p.homeworld}}</td>
+					<td style="text-align: center;">{{p.homeworld.climate}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% else %}
+	<div class="data" id="na">
+		<table>
+			<thead>
+				<tr>
+					<th>Error</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="text-align: center; font-weight: 500;">No data available, please use the following command line before use:</td>
+				</tr>
+				<tr>
+					<td style="text-align: center; font-weight: 400; color:thistle">python3 manage.py loaddata Day05/static/json/ex09_initial_data.json</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Ex01: Template engine. {% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'style/style2.css' %}"> {% endblock %}
+{% block content %}
+<div class="page">
+
+	<span id="left-top">
+		<h3 style="padding-left: 15px;">Variables</h3>
+		<p>
+			Variables look like this:
+			<div style="font-weight:bold; color:rgb(166, 32, 243); padding-left: 30px;">&#123;&#123; variable &#125;&#125;</div>
+		</p>
+		<p>
+			When the template engine encounters a variable, it evaluates that variable and replaces it with the result.<br>
+			Variable names consist of any combination of alphanumeric characters and the underscore ("_") but may not start with an underscore, and may not be a number.<br>
+			The dot (".") also appears in variable sections, although that has a special meaning, as indicated below.<br>
+			Importantly, you cannot have spaces or punctuation characters in variable names.<br>
+			Use a dot (.) to access attributes of a variable.
+		</p>
+	</span>
+
+	<span id="right">
+		<h3 style="padding-left: 15px;">Block</h3>
+
+		<p>
+			The most powerful – and thus the most complex – part of Django’s template engine is template inheritance.<br>
+			Template inheritance allows you to build a base “skeleton” template that contains all the common elements of your site and defines blocks that child templates can override.<br>
+			Let’s look at template inheritance by starting with an example:
+		</p>
+		<div class="box1">
+			&lt;!DOCTYPE html&gt;<br>
+			&lt;html lang="en"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;head&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;title&gt;&#123;% block title %&#125;My amazing site&#123;% endblock %&#125;&lt;/title&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;/head&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;body&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;div id="sidebar"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#123;% block sidebar %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;ul&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="/blog/"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/ul&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#123;% endblock %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;<br>
+			<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;div id="content"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#123;% block content %&#125;&#123;% endblock %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&lt;/div&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;/body&gt;<br>
+			&lt;/html&gt;<br>
+		</div>
+		<p>
+			This template, which we’ll call base.html, defines an HTML skeleton document that you might use for a two-column page.<br>
+			It’s the job of “child” templates to fill the empty blocks with content.<br>
+			In this example, the block tag defines three blocks that child templates can fill in.<br>
+			All the block tag does is to tell the template engine that a child template may override those portions of the template.<br>
+			A child template might look like this:
+		</p>
+		<div class="box1">
+			&#123;% extends "base.html" %&#125;<br>
+			&#123;% block title %&#125;My amazing blog&#123;% endblock %&#125;<br>
+			&#123;% block content %&#125;<br>
+			&#123;% for entry in blog_entries %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;h2&gt;&#123;&#123; entry.title &#125;&#125;&lt;/h2&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;p&gt;&#123;&#123; entry.body &#125;&#125;&lt;/p&gt;<br>
+			&#123;% endfor %&#125;<br>
+			&#123;% endblock %&#125;<br>
+		</div>
+		<p>
+			The extends tag is the key here. It tells the template engine that this template “extends” another template.<br>
+			When the template system evaluates this template, first it locates the parent – in this case, “base.html”.<br>
+			At that point, the template engine will notice the three block tags in base.html and replace those blocks with the contents of the child template.<br>
+			Depending on the value of blog_entries, the output might look like:
+		</p>
+		<div class="box1">
+			&lt;!DOCTYPE html&gt;<br>
+			&lt;html lang="en"&gt;<br>
+			&lt;head&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;title&gt;My amazing blog&lt;/title&gt;<br>
+			&lt;/head&gt;<br>
+			<br>
+			&lt;body&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;div id="sidebar"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;ul&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;li&gt;&lt;a href="/blog/"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;/ul&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;/div&gt;<br>
+			<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;div id="content"&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;h2&gt;Entry one&lt;/h2&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;p&gt;This is my first entry.&lt;/p&gt;<br>
+			<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;h2&gt;Entry two&lt;/h2&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&lt;p&gt;This is my second entry.&lt;/p&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&lt;/div&gt;<br>
+			&lt;/body&gt;<br>
+			&lt;/html&gt;<br>
+		</div>
+		<p>
+			Note that since the child template didn’t define the sidebar block, the value from the parent template is used instead.<br>
+			Content within a &#123;% block %&#125; tag in a parent template is always used as a fallback.
+		</p>
+	</span>
+
+
+	<span id="left-bottom">
+		<h3 style="padding-left: 15px;">Tags</h3>
+		<p>
+			Tags look like this:
+			<div style="font-weight:bold; color:rgb(23, 194, 80); padding-left: 30px;">&#123;% tag %&#125;</div>
+		</p>
+		<p>
+			Tags are more complex than variables:<br>
+			Some create text in the output, some control flow by performing loops or logic, and some load external information into the template to be used by later variables.<br>
+			Some tags require beginning and ending tags (i.e. &#123;% tag %&#125; ... tag contents ... &#123;% endtag %&#125;).<br>
+			Django ships with about two dozen built-in template tags. You can read all about them in the built-in tag reference.<br>
+			To give you a taste of what’s available, here are some of the more commonly used tags:<br>
+		</p>
+		<h4 style="padding-left: 15px;">for</h4>
+		<p>Loop over each item in an array. For example, to display a list of athletes provided in athlete_list:</p>
+		<div class="box2">
+			&lt;ul&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp; &#123;% for athlete in athlete_list %&#125;<br>
+			&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &lt;li&gt;&#123;&#123; athlete.name &#125;&#125;&lt;/li&gt;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp; &#123;% endfor %&#125;<br>
+			&lt;/ul&gt;
+		</div>
+		<h4 style="padding-left: 15px;">if, elif, and else</h4>
+		<p>Evaluates a variable, and if that variable is “true” the contents of the block are displayed:</p>
+		<div class="box2">
+			&#123;% if athlete_list %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Number of athletes: &#123;&#123; athlete_list|length &#125;&#125;<br>
+			&#123;% elif athlete_in_locker_room_list %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Athletes should be out of the locker room soon!<br>
+			&#123;% else %&#125;<br>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;No athletes.<br>
+			&#123;% endif %&#125;<br>
+		</div>
+		<p>
+		In the above, if athlete_list is not empty, the number of athletes will be displayed by the &#123;&#123; athlete_list|length &#125;&#125; variable.<br>
+		Otherwise, if athlete_in_locker_room_list is not empty, the message “Athletes should be out…” will be displayed.<br>
+		If both lists are empty, “No athletes.” will be displayed.
+		</p>
+	</span>
+
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

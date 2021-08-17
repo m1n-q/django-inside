@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% bootstrap_css %}
+{% block style %}
+<style>
+	.dropdown:hover .dropdown-menu {
+		display: block;
+		margin-top: 0;
+	}
+	#vote {
+		height: 5vh;
+	}
+	#id {
+		height: 5vh;
+	}
+</style>
+{% endblock %}
+{% block nav %}
+	<div class="nav-link">Hello, {{ username }} ({{ reputation }})</div>
+	<a class="nav-link active" aria-current="page" href="#">HOME</a>
+	{% if signed %}
+		<a class="nav-link" href="/out">LOG OUT</a>
+	{% else %}
+		<a class="nav-link" href="/signin">SIGN IN</a>
+		<a class="nav-link" href="/signup">SIGN UP</a>
+	{% endif %}
+{% endblock %}
+{% block content %}
+	{% for tip in tips %}
+		<ul class="list-group list-group-horizontal" style="width: 40vw; height: 5vh;">
+			<li class="list-group-item list-group-item-dark" style="width: 7vw; text-align: center;">{{tip.author}}</li>
+			<li class="list-group-item" style="width: 23vw;">{{tip.content}}</li>
+			<li class="list-group-item list-group-item-info" style="width: 10vw;">{{tip.date}}</li>
+			{% if user.is_authenticated %}
+
+				{% if user in tip.like.all %}
+					<form method="POST" action="{% url 'ex:vote' %}" class="btn-group" role="group">
+						{% csrf_token %}
+						<input type="hidden" name="tip_id" value={{ tip.id }}>
+						<div class="dropdown">
+							<button id='vote' class="btn btn-info" name="like" type="submit" value="like">Like<br>{{ tip.like.all | length }}</button>
+							<ul class="dropdown-menu">
+								{% for user in tip.like.all %}
+									<li><div class="dropdown-item">{{user}}</div></li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="dropdown">
+							<button id='vote' class="btn btn-outline-secondary" name="dislike" type="submit" value="dislike">Disike<br>{{ tip.dislike.all | length }}</button>
+							<ul class="dropdown-menu">
+								{% for user in tip.dislike.all %}
+									<li><div class="dropdown-item">{{user}}</div></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</form>
+					<form method="POST" class="btn-group" action="{% url 'ex:delpost' %}">
+						{% csrf_token %}
+						<input type="hidden" name="tip_id" value={{ tip.id }}>
+						<button class="btn btn-danger" id="del" type="submit" name="delpost" value="delpost" {{ is_able }}>DELETE</button>
+					</form>
+
+				{% elif user in tip.dislike.all %}
+					<form method="POST" action="{% url 'ex:vote' %}" class="btn-group" role="group">
+						{% csrf_token %}
+						<input type="hidden" name="tip_id" value={{ tip.id }}>
+						<div class="dropdown">
+							<button id='vote' class="btn btn-outline-info" name="like" type="submit" value="like">Like<br>{{ tip.like.all | length }}</button>
+							<ul class="dropdown-menu">
+								{% for user in tip.like.all %}
+									<li><div class="dropdown-item">{{user}}</div></li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="dropdown">
+							<button id='vote' class="btn btn-secondary" name="dislike" type="submit" value="dislike">Disike<br>{{ tip.dislike.all | length }}</button>
+							<ul class="dropdown-menu">
+								{% for user in tip.dislike.all %}
+									<li><div class="dropdown-item">{{user}}</div></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</form>
+					<form method="POST" class="btn-group" action="{% url 'ex:delpost' %}">
+						{% csrf_token %}
+						<input type="hidden" name="tip_id" value={{ tip.id }}>
+						<button class="btn btn-danger" id="del" type="submit" name="delpost" value="delpost" {{ is_able }}>DELETE</button>
+					</form>
+
+				{% else %}
+					<form method="POST" action="{% url 'ex:vote' %}" class="btn-group" role="group">
+						{% csrf_token %}
+						<input type="hidden" name="tip_id" value={{ tip.id }}>
+						<div class="dropdown">
+							<button id='vote' class="btn btn-outline-info" name="like" type="submit" value="like">Like<br>{{ tip.like.all | length }}</button>
+							<ul class="dropdown-menu">
+								{% for user in tip.like.all %}
+									<li><div class="dropdown-item">{{user}}</div></li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="dropdown">
+							<button id='vote' class="btn btn-outline-secondary" name="dislike" type="submit" value="dislike">Disike<br>{{ tip.dislike.all | length }}</button>
+							<ul class="dropdown-menu">
+								{% for user in tip.dislike.all %}
+									<li><div class="dropdown-item">{{user}}</div></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</form>
+					<form method="POST" class="btn-group" action="{% url 'ex:delpost' %}">
+						{% csrf_token %}
+						<input type="hidden" name="tip_id" value={{ tip.id }}>
+						<button class="btn btn-danger" id="del" type="submit" name="delpost" value="delpost" {{ is_able }}>DELETE</button>
+					</form>
+				{% endif %}
+
+			<!-- Anonymous user -->
+			{% else %}
+				<div class="dropdown">
+					<button id='vote' type="button" class="btn btn-info" disabled>Like<br>{{ tip.like.all | length }}</button>
+					<ul class="dropdown-menu">
+						{% for user in tip.like.all %}
+							<li><div class="dropdown-item">{{user}}</div></li>
+						{% endfor %}
+				</div>
+				<div class="dropdown">
+					<button id='vote' type="button" class="btn btn-secondary" disabled>Dislike<br>{{ tip.dislike.all | length }}</button>
+					<ul class="dropdown-menu">
+						{% for user in tip.dislike.all %}
+							<li><div class="dropdown-item">{{user}}</div></li>
+						{% endfor %}
+				</div>
+			{% endif %}
+
+		</ul>
+	{% endfor %}
+	{% if tipform %}
+		<form method="POST" action="{% url 'ex:addpost' %}" style="width: 40vw;">
+			{% csrf_token %}
+			{% bootstrap_form tipform layout='inline' %}
+			{% bootstrap_button "Save" button_type="submit" button_class="btn-info" %}
+		</form>
+	{% endif %}
+{% endblock %}
+
+
+{# bootstrap_button "Like" button_type="submit" button_class="btn btn-primary" name="like" value="like" #}
+{# bootstrap_button "Dislike" button_type="submit" button_class="btn btn-outline-secondary" name="dislike" value="dislike" #}

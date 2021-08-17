@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ex03: mainpage{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'style/style3.css' %}">{% endblock %}
+
+{% block content %}
+<div class="page" id="p6" style="color:black;">
+	<table class="shader">
+		<tr>
+			<th>BLACK</th>
+			<th>RED</th>
+			<th>GREEN</th>
+			<th>BLUE</th>
+		</tr>
+		<!--ver. alpha-->
+		{% for i in range %}
+		<tr>
+			<td style="background-color: rgba(0, 0, 0, calc({{i}} / 100));"></td>
+			<td style="background-color: rgba(255, 0, 0, calc({{i}} / 100));"></td>
+			<td style="background-color: rgba(0, 255, 0, calc({{i}} / 100));"></td>
+			<td style="background-color: rgba(0, 0, 255, calc({{i}} / 100));"></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}
+
+
+<!--ver. shade-->
+<!--
+	<tr>
+		<td style="background-color: rgb(calc({{ cell }} * {{i}}), calc({{ cell }} * {{i}}), calc({{ cell }} * {{i}}));"></td>
+		<td style="background-color: rgb(calc({{ cell }} * {{i}}),0,0);"></td>
+		<td style="background-color: rgb(0,calc({{ cell }} * {{i}}),0);"></td>
+		<td style="background-color: rgb(0,0,calc({{ cell }} * {{i}}));"></td>
+	</tr>
+-->

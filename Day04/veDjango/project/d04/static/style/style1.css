@@ -1,0 +1,76 @@
+@import "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css";
+
+html, body, .page {
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
+transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+-webkit-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+-moz-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+-o-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+color: #fff;
+overflow: hidden;
+}
+
+* {
+/* font-family: 'open sans', 'lato', 'helvetica', sans-serif; */
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+.page {
+	position: absolute;
+	display: table;
+}
+
+.page span {
+	font-size: larger;
+	vertical-align: middle;
+	text-align: center;
+	display: table-cell;
+}
+
+ol {
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	color: mediumpurple
+}
+
+#stepheading {
+	color: slateblue;
+}
+
+#p1 { background: darkslateblue; }
+#p2 { background: tomato; }
+#p3 { background: gold; }
+#p4 { background: deeppink; }
+#p5 { background: rebeccapurple; }
+
+
+#history {
+	display: flex;
+	overflow-x: auto;
+	margin-left : 70vw;
+	margin-top: 5vh;
+	background-color: slateblue;
+	width: 30vw;
+	height: 90vh;
+}
+
+#logs {
+	width: 30vw;
+	padding: 2%;
+	display: flex;
+	flex-direction: column-reverse;
+	color: white;
+	overflow-y: scroll;
+}
+
+#message {
+	margin-left : 70vw;
+	width: 30vw;
+}
+

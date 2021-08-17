@@ -17,9 +17,9 @@ def test_text():
     assert str(Text('\n')) == '\n<br />\n'
     assert str(Text('foo\nbar')) == 'foo\n<br />\nbar'
     # Escaping <, >, "...
-    # assert str(Text('<')) == '&lt;'
-    # assert str(Text('>')) == '&gt;'
-    # assert str(Text('"')) == '&quot;'
+    assert str(Text('<')) == '&lt;'
+    assert str(Text('>')) == '&gt;'
+    assert str(Text('"')) == '&quot;'
     print('Text behaviour : OK.')
 
 
@@ -29,6 +29,7 @@ def test_elem_basics():
     # Arguments order :
     assert str(Elem('div', {}, None, 'double')) == '<div></div>'
     # Argument names :
+
     assert str(Elem(tag='body', attr={}, content=Elem(),
                     tag_type='double')) == '<body>\n  <div></div>\n</body>'
     # With elem as content :

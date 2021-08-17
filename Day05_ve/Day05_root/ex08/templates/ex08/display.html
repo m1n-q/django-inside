@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}EX08: display {% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/table.css' %}">{% endblock %}
+{% block content %}
+<div class="container_data" id="data">
+	{% if pl_err %}
+	<table>
+		<thead>
+			<tr>
+				<th style="text-align: center;">ERROR</th>
+			</tr>
+		</thead>
+		<tbody>
+			<td>
+				{{ pl_records }}
+			</td>
+		</tbody>
+	</table>
+	{% else %}
+	<div class="data" id="planets">
+		<table>
+			<thead>
+				<tr>
+					{% for col in pl_col_names %}
+						<th>{{col}}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+			{% for record in pl_records %}
+				<tr>
+					{% for r in record %}
+						<td style="text-align: center;">{{r}}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+
+	{% if pp_err %}
+	<table>
+		<thead>
+			<tr>
+				<th style="text-align: center;">ERROR</th>
+			</tr>
+		</thead>
+		<tbody>
+			<td>
+				{{ pp_records }}
+			</td>
+		</tbody>
+	</table>
+	{% else %}
+	<div class="data" id="people">
+		<table>
+			<thead>
+				<tr>
+					{% for col in pp_col_names %}
+						<th>{{col}}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+			{% for record in pp_records %}
+				<tr>
+					{% for r in record %}
+						<td style="text-align: center;">{{r}}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+
+
+	<div class="data" id="joiend">
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Homeworld</th>
+					<th>Climate</th>
+
+				</tr>
+			</thead>
+			<tbody>
+			{% for record in joined %}
+				<tr>
+					{% for r in record %}
+						<td style="text-align: center;">{{r}}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+
+</div>
+{% endblock %}
+

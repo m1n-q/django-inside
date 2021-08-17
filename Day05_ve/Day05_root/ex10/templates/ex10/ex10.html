@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}EX10{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/table.css' %}">{% endblock %}
+{% block content %}
+<div class="container">
+	<div id="searchbox">
+		<table>
+			<form method="GET">
+				{{form}}
+
+				<tr>
+					<td></td>
+					<td id="submit"><input type="submit" value="search"></td>
+				</tr>
+			</form>
+		</table>
+	</div>
+	{% if res %}
+	<div class="inner">
+		<div id="result">
+			<table>
+				<thead>
+					<tr class="head">
+						<th class="head">Title</th>
+						<th class="head">Character</th>
+						<th class="head">Gender</th>
+						<th class="head">Homeworld</th>
+						<th class="head">Diameter</th>
+					</tr>
+				</thead>
+			{% for row in res %}
+				<tbody>
+					<tr>
+						{% for field in row %}
+						<td>{{ field }}</td>
+						{% endfor %}
+					</tr>
+				</tbody>
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

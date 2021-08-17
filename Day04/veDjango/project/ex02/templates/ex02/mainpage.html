@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ex02: mainpage{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'style/style1.css' %}" {% endblock %}
+{% block content %}
+<div class="page" id="p1">
+
+	<div id="history">
+		<div id="logs">
+			{% for log in history %}
+			{{log}}<br>
+			{% endfor %}
+		</div>
+	</div>
+
+
+	<form id="message" style="color:steelblue" method="post">{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Submit">
+	</form>
+
+</div>
+{% endblock %}

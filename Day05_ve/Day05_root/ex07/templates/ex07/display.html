@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}EX07: display {% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/table.css' %}">{% endblock %}
+{% block content %}
+<div class="container">
+	{% if records %}
+	<table>
+		<thead>
+			<tr>
+				{% for col in col_names %}
+					<th>{{ col }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+		{% for record in records %}
+			<tr>
+				{% for r in record %}
+					<td style="text-align: center;">{{r}}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	{% else %}
+	<table>
+		<thead>
+			<tr>
+				<th style="text-align: center;">ERROR</th>
+			</tr>
+		</thead>
+		<tbody>
+			<td>
+				{{ msg }}
+			</td>
+		</tbody>
+	</table>
+	{% endif %}
+</div>
+{% endblock %}
+

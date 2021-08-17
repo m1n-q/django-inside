@@ -1,4 +1,7 @@
+<공통>
+
 실행권한
+turn-in file
 
 <html>
 w3d validate ( doctype, html lang . . .)
@@ -6,7 +9,6 @@ other instructions
 
 <python>
 exception
-python version ( typehint ok ? )
 if __name__ == '__main__':
 
 

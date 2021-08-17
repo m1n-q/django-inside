@@ -1,0 +1,79 @@
+@import "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css";
+
+html, body, .page {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+	-webkit-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+	-moz-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+	-o-transition: all .8s cubic-bezier(0.54, 0.35, 0.29, 0.99);
+	color: #fff;
+	overflow: hidden;
+}
+
+* {
+	/* font-family: 'open sans', 'lato', 'helvetica', sans-serif; */
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.page {
+	position: relative;
+}
+
+p {
+	padding-left: 20px;
+}
+
+#left-top {
+	position: relative;
+	top : 50px;
+	width : 50%;
+	height : 40%;
+	float: left;
+	background: rgb(253, 118, 8);
+	color: rgb(255, 255, 255);
+	font-size:16px;
+}
+
+#left-bottom {
+	position: relative;
+	width : 50%;
+	height : 60%;
+	clear: left;
+	float: left;
+	background: rgb(199, 5, 118);
+	color: blanchedalmond;
+	font-size: 14.5px;
+}
+
+#right {
+	position: relative;
+	top : 50px;
+	width: 50%;
+	height : 100%;
+	clear: right;
+	float: right;
+	background: rgba(212, 210, 39, 0.959);
+	color:black;
+}
+
+
+.box1 {
+	margin-left: 20%;
+	width: 40%;
+	border : 1px;
+	background: rgba(190, 188, 43, 0.781);
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 11.8px;
+	color:rgb(90, 90, 90);
+}
+
+.box2 {
+	margin-left: 20%;
+	width: 40%;
+	border : 1px;
+	background:rgb(177, 20, 111);;
+	font-family: 'Times New Roman', Times, serif;
+}

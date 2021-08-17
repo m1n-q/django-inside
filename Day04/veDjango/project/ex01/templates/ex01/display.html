@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Ex01: Display process of a static page. {% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'style/style1.css' %}" {% endblock %}
+{% block content %}
+
+<div class="page" id="p5">
+
+	<span>
+		<h1>The Request/Response Procedure</h1>
+		<p>
+			At its most basic level, the request/response process consists of a web browser asking the web server<br>
+			to send it a web page and the server sending back the page.<br>
+			The browser then takes care of displaying the page.
+		</p>
+		<h2 id="stepheading">These are the steps in the request and response sequence:</h2>
+		<ol>
+			<li>You enter http://server.com into your browser’s address bar.</li>
+			<li>Your browser looks up the IP address for server.com.</li>
+			<li>Your browser issues a request for the home page at server.com.</li>
+			<li>The request crosses the Internet and arrives at the server.com web server.</li>
+			<li>The web server, having received the request, looks for the web page on its hard disk.</li>
+			<li>The server retrieves the web page and returns it to the browser.</li>
+			<li>Your browser displays the web page.</li>
+		</ol>
+		<p>
+			For an average web page, this process takes place once for each object within the page: a graphic, an embedded video or Flash file, and even a CSS template.<br>
+			<br>
+			In step 2, notice that the browser looked up the IP address of server.com.<br>
+			Every machine attached to the Internet has an IP address—your computer included.<br>
+			But we generally access web servers by name, such as http://www.google.com.<br>
+			As you probably know, the browser consults an additional Internet service called the Domain Name Service (DNS)<br>
+			to find the server’s associated IP address and then uses that to communicate with the computer.
+		</p>
+	</span>
+</div>
+
+{% endblock %}

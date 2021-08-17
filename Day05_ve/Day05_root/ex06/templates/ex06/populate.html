@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}EX06: populate{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/table.css' %}">{% endblock %}
+{% block content %}
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th>INSERT</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for msg in result %}
+				<tr>
+					<td style="text-align: center;">
+						{{ msg }}
+						<br>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

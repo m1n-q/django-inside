@@ -1,0 +1,21 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:thistle;">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand">Django Piscine</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{% url 'ex01:django_index' %}">History</a></li>
+				<li><a href="{% url 'ex01:django_display' %}">Display</a></li>
+				<li><a href="{% url 'ex01:django_templates' %}">Templates</a></li>
+				<li><a href="{% url 'ex02:mainpage' %}">Logs</a></li>
+				<li><a href="{% url 'ex03:mainpage' %}">Shader</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

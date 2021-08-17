@@ -2,87 +2,88 @@
 
 
 class Text(str):
-    """
-    A Text class to represent a text you could use with your HTML elements.
-
-    Because directly using str class was too mainstream.
-    """
 
     def __str__(self):
-        """
-        Do you really need a comment to understand this method?..
-        """
-        return super().__str__().replace('\n', '\n<br />\n')
+        return super().__str__().replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace('\n', '\n<br />\n')
 
 
 class Elem:
-    """
-    Elem will permit us to represent our HTML elements.
-    """
-    # [...]
+
 
     def __init__(self, tag='div', attr={}, content=None, tag_type='double'):
-        """
-        __init__() method.
 
-        Obviously.
-        """
-        self.tag=tag
-        self.attr=attr
-        self.tag_type=tag_type
-
-
+        if not tag:
+            raise Elem.ValidationError
+        if type(attr) != dict:
+            raise Elem.ValidationError
+        if tag_type != 'double' and tag_type != 'simple':
+            raise Elem.ValidationError
         if type(content) != list and content != None and \
             not (isinstance(content, Text)) and not (isinstance(content, Elem)):
             raise Elem.ValidationError
+
+        self.tag=tag
+        self.attr=attr
+        self.tag_type=tag_type
+        self.content = []
+
+
         if content == None or content == Text(''):
-            self.content = ['']
+            self.content = []
+
         elif type(content) == list:
             for c in content:
                 if not (isinstance(c, Text)) and not (isinstance(c, Elem)):
                     raise Elem.ValidationError
-            self.content = content
-        else:
-            self.content = Text(content).split('\n')
+            self.content += content
+
+        elif isinstance(content, Elem) or type(content) == Text:
+            self.content.append(content)
 
     def __str__(self):
-        """
-        The __str__() method will permit us to make a plain HTML representation
-        of our elements.
-        Make sure it renders everything (tag, attributes, embedded
-        elements...).
-        """
+
         attr = self.__make_attr()
         content = self.__make_content()
+
         if self.tag_type == 'double':
             result = "<" + self.tag + attr + ">" + content + "</" + self.tag + ">"
         elif self.tag_type == 'simple':
-            # [...]
-            pass
+            result = "<" + self.tag + attr + " />"
         return result
 
+
     def __make_attr(self):
-        """
-        Here is a function to render our elements attributes.
-        """
+
         result = ''
         for pair in sorted(self.attr.items()):
             result += ' ' + str(pair[0]) + '="' + str(pair[1]) + '"'
         return result
 
+
     def __make_content(self):
-        """
-        Here is a method to render the content, including embedded elements.
-        """
 
         if len(self.content) == 0:
             return ''
+
 
         result = '\n'
         for elem in self.content:
             if elem == Text(''):
                 continue
-            result += '  ' + Text(elem) + '\n'
+
+            if isinstance(elem, Elem):
+                for e in Text(elem).split('\n'):
+                    result += '  ' + Text(e) + '\n'
+
+            elif type(elem) == Text:
+                result += '  ' + elem + '\n'
+
+            # elif type(elem) == list:
+            #     for e in elem:
+            #         if e != Text(''):
+            #             result += '  ' + Text(e) + '\n'
+
+
         if result == '\n':
             return ''
         return result
@@ -90,12 +91,15 @@ class Elem:
     def add_content(self, content):
         if not Elem.check_type(content):
             raise Elem.ValidationError
-        if type(content) == list:
-            self.content += [elem for elem in content if elem != Text('')]
-        elif isinstance(content, Elem):
-            tmp = Text(content).split('\n')
-            for elem in tmp:
-                self.content.append('  ' + Text(elem))
+
+        if isinstance(content, Elem):
+                self.content.append(content)
+
+        elif type(content) == list:
+            for elem in content:
+                if elem != Text(''):
+                    self.content.append(elem)
+
         elif content != Text(''):
             self.content.append(content)
 
@@ -116,13 +120,44 @@ class Elem:
             super().__init__("Validation Error")
 
 
+
+
+
+def imitate_example():
+    '''
+    <html>
+      <head>
+        <title>
+          "Hello ground!"
+        </title>
+      </head>
+      <body>
+        <h1>
+          "Oh no, not again!"
+        </h1>
+        <img src="http://i.imgur.com/pfp3T.jpg" />
+      </body>
+    </html>
+    '''
+
+    html = Elem("html")
+    head = Elem("head")
+    title = Elem("title", content=Text("Hello Ground"))
+    body = Elem("body")
+    h1 = Elem("h1", content=Text("Oh no, not again!"))
+    img = Elem("img", attr={"src" : "http://i.imgur.com/pfp3T.jpg"}, tag_type="simple")
+
+    head.add_content(title)
+
+    body.add_content(h1)
+    body.add_content(img)
+
+    html.add_content([head, body])
+
+
+
+    return html
+
 if __name__ == '__main__':
 
-    elem = Elem()
-    elem2 = Elem("body", content=Elem("div"))
-
-    elem.add_content(Elem("body",content=Elem("sector", content=Elem("table", attr = {"style":"border:1px black solid;"},content=Elem("td",content=Text(''))))))
-    # elem2 = Elem("body",content=Elem("sector", content=Elem("table", attr = {"style":"border:1px black solid;"},content=Elem("td",content=Text('')))))
-
-    elem.add_content(elem2)
-    print(elem)
+    print(imitate_example())

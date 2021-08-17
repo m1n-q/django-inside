@@ -1,0 +1,121 @@
+2021-07-30T17:32:30,716 Using pip 21.2.1 from /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip (python 3.8)
+2021-07-30T17:32:30,716 Non-user install due to --prefix or --target option
+2021-07-30T17:32:30,717 Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-target-bmtf1qqy
+2021-07-30T17:32:30,721 Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-ephem-wheel-cache-kq962xnv
+2021-07-30T17:32:30,721 Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y
+2021-07-30T17:32:30,721 Initialized build tracking at /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y
+2021-07-30T17:32:30,721 Created build tracker: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y
+2021-07-30T17:32:30,721 Entered build tracker: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y
+2021-07-30T17:32:30,721 Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-install-sdpq8k9m
+2021-07-30T17:32:30,735 Collecting git+https://github.com/jaraco/path
+2021-07-30T17:32:30,736   Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-build-gvt709kz
+2021-07-30T17:32:30,736   Cloning https://github.com/jaraco/path to /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-build-gvt709kz
+2021-07-30T17:32:30,736   Running command git clone -q https://github.com/jaraco/path /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-build-gvt709kz
+2021-07-30T17:32:31,665   Running command git rev-parse HEAD
+2021-07-30T17:32:31,673   983f8254e7767a3b13f54633157d7f24ad106649
+2021-07-30T17:32:31,673   Resolved https://github.com/jaraco/path to commit 983f8254e7767a3b13f54633157d7f24ad106649
+2021-07-30T17:32:31,675   Added git+https://github.com/jaraco/path to build tracker '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y'
+2021-07-30T17:32:31,679   Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-build-env-yuc8n1s8
+2021-07-30T17:32:31,682   Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-standalone-pip-5gjjyb1_
+2021-07-30T17:32:31,878   Running command /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-standalone-pip-5gjjyb1_/__env_pip__.zip/pip install --ignore-installed --no-user --prefix /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-build-env-yuc8n1s8/overlay --no-warn-script-location -v --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'setuptools>=56' wheel 'setuptools_scm[toml]>=3.4.1'
+2021-07-30T17:32:32,940   Using pip 21.2.1 from /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-standalone-pip-5gjjyb1_/__env_pip__.zip/pip (python 3.8)
+2021-07-30T17:32:33,451   Collecting setuptools>=56
+2021-07-30T17:32:33,499     Using cached setuptools-57.4.0-py3-none-any.whl (819 kB)
+2021-07-30T17:32:33,592   Collecting wheel
+2021-07-30T17:32:33,597     Using cached wheel-0.36.2-py2.py3-none-any.whl (35 kB)
+2021-07-30T17:32:33,745   Collecting setuptools_scm[toml]>=3.4.1
+2021-07-30T17:32:33,751     Using cached setuptools_scm-6.0.1-py3-none-any.whl (27 kB)
+2021-07-30T17:32:33,885   Collecting toml
+2021-07-30T17:32:33,891     Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+2021-07-30T17:32:34,079   Installing collected packages: setuptools, toml, setuptools-scm, wheel
+2021-07-30T17:32:34,575     Creating /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-build-env-yuc8n1s8/overlay/bin
+2021-07-30T17:32:34,575     changing mode of /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-build-env-yuc8n1s8/overlay/bin/wheel to 755
+2021-07-30T17:32:34,580   Successfully installed setuptools-57.4.0 setuptools-scm-6.0.1 toml-0.10.2 wheel-0.36.2
+2021-07-30T17:32:34,665   Running command /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip/_vendor/pep517/in_process/_in_process.py get_requires_for_build_wheel /var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/tmprj_4bl98
+2021-07-30T17:32:34,910   running egg_info
+2021-07-30T17:32:34,911   creating path.egg-info
+2021-07-30T17:32:34,911   writing path.egg-info/PKG-INFO
+2021-07-30T17:32:34,911   writing dependency_links to path.egg-info/dependency_links.txt
+2021-07-30T17:32:34,912   writing requirements to path.egg-info/requires.txt
+2021-07-30T17:32:34,912   writing top-level names to path.egg-info/top_level.txt
+2021-07-30T17:32:34,912   writing manifest file 'path.egg-info/SOURCES.txt'
+2021-07-30T17:32:34,958   reading manifest template 'MANIFEST.in'
+2021-07-30T17:32:34,959   adding license file 'LICENSE'
+2021-07-30T17:32:34,960   writing manifest file 'path.egg-info/SOURCES.txt'
+2021-07-30T17:32:34,990     Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6
+2021-07-30T17:32:34,991     Running command /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip/_vendor/pep517/in_process/_in_process.py prepare_metadata_for_build_wheel /var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/tmpqgvey7f0
+2021-07-30T17:32:35,224     running dist_info
+2021-07-30T17:32:35,228     creating /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info
+2021-07-30T17:32:35,229     writing /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info/PKG-INFO
+2021-07-30T17:32:35,229     writing dependency_links to /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info/dependency_links.txt
+2021-07-30T17:32:35,229     writing requirements to /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info/requires.txt
+2021-07-30T17:32:35,229     writing top-level names to /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info/top_level.txt
+2021-07-30T17:32:35,230     writing manifest file '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info/SOURCES.txt'
+2021-07-30T17:32:35,274     reading manifest template 'MANIFEST.in'
+2021-07-30T17:32:35,275     adding license file 'LICENSE'
+2021-07-30T17:32:35,276     writing manifest file '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.egg-info/SOURCES.txt'
+2021-07-30T17:32:35,276     creating '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-modern-metadata-z42iuue6/path.dist-info'
+2021-07-30T17:32:35,300     adding license file "LICENSE" (matched pattern "LICEN[CS]E*")
+2021-07-30T17:32:35,331   Source in /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-build-gvt709kz has version 16.2.0, which satisfies requirement path==16.2.0 from git+https://github.com/jaraco/path
+2021-07-30T17:32:35,332   Removed path==16.2.0 from git+https://github.com/jaraco/path from build tracker '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y'
+2021-07-30T17:32:35,350 Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-unpack-kcj8q984
+2021-07-30T17:32:35,350 Building wheels for collected packages: path
+2021-07-30T17:32:35,351   Created temporary directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-wheel-fr8zaei_
+2021-07-30T17:32:35,352   Destination directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-wheel-fr8zaei_
+2021-07-30T17:32:35,352   Running command /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip/_vendor/pep517/in_process/_in_process.py build_wheel /var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/tmp0ut_b43g
+2021-07-30T17:32:35,595   running bdist_wheel
+2021-07-30T17:32:35,598   running build
+2021-07-30T17:32:35,598   running build_py
+2021-07-30T17:32:35,614   creating build
+2021-07-30T17:32:35,614   creating build/lib
+2021-07-30T17:32:35,614   creating build/lib/path
+2021-07-30T17:32:35,614   copying path/py37compat.py -> build/lib/path
+2021-07-30T17:32:35,614   copying path/__init__.py -> build/lib/path
+2021-07-30T17:32:35,615   copying path/masks.py -> build/lib/path
+2021-07-30T17:32:35,615   copying path/matchers.py -> build/lib/path
+2021-07-30T17:32:35,616   copying path/classes.py -> build/lib/path
+2021-07-30T17:32:35,616   running egg_info
+2021-07-30T17:32:35,623   writing path.egg-info/PKG-INFO
+2021-07-30T17:32:35,624   writing dependency_links to path.egg-info/dependency_links.txt
+2021-07-30T17:32:35,624   writing requirements to path.egg-info/requires.txt
+2021-07-30T17:32:35,625   writing top-level names to path.egg-info/top_level.txt
+2021-07-30T17:32:35,653   reading manifest template 'MANIFEST.in'
+2021-07-30T17:32:35,654   adding license file 'LICENSE'
+2021-07-30T17:32:35,655   writing manifest file 'path.egg-info/SOURCES.txt'
+2021-07-30T17:32:35,658   installing to build/bdist.macosx-10.9-x86_64/wheel
+2021-07-30T17:32:35,658   running install
+2021-07-30T17:32:35,658   running install_lib
+2021-07-30T17:32:35,659   creating build/bdist.macosx-10.9-x86_64
+2021-07-30T17:32:35,659   creating build/bdist.macosx-10.9-x86_64/wheel
+2021-07-30T17:32:35,659   creating build/bdist.macosx-10.9-x86_64/wheel/path
+2021-07-30T17:32:35,659   copying build/lib/path/py37compat.py -> build/bdist.macosx-10.9-x86_64/wheel/path
+2021-07-30T17:32:35,660   copying build/lib/path/__init__.py -> build/bdist.macosx-10.9-x86_64/wheel/path
+2021-07-30T17:32:35,661   copying build/lib/path/masks.py -> build/bdist.macosx-10.9-x86_64/wheel/path
+2021-07-30T17:32:35,661   copying build/lib/path/matchers.py -> build/bdist.macosx-10.9-x86_64/wheel/path
+2021-07-30T17:32:35,662   copying build/lib/path/classes.py -> build/bdist.macosx-10.9-x86_64/wheel/path
+2021-07-30T17:32:35,662   running install_egg_info
+2021-07-30T17:32:35,663   Copying path.egg-info to build/bdist.macosx-10.9-x86_64/wheel/path-16.2.0-py3.8.egg-info
+2021-07-30T17:32:35,665   running install_scripts
+2021-07-30T17:32:35,703   adding license file "LICENSE" (matched pattern "LICEN[CS]E*")
+2021-07-30T17:32:35,704   creating build/bdist.macosx-10.9-x86_64/wheel/path-16.2.0.dist-info/WHEEL
+2021-07-30T17:32:35,705   creating '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-wheel-fr8zaei_/tmpm4qmjxt8/path-16.2.0-py3-none-any.whl' and adding 'build/bdist.macosx-10.9-x86_64/wheel' to it
+2021-07-30T17:32:35,707   adding 'path/__init__.py'
+2021-07-30T17:32:35,708   adding 'path/classes.py'
+2021-07-30T17:32:35,708   adding 'path/masks.py'
+2021-07-30T17:32:35,709   adding 'path/matchers.py'
+2021-07-30T17:32:35,709   adding 'path/py37compat.py'
+2021-07-30T17:32:35,710   adding 'path-16.2.0.dist-info/LICENSE'
+2021-07-30T17:32:35,710   adding 'path-16.2.0.dist-info/METADATA'
+2021-07-30T17:32:35,711   adding 'path-16.2.0.dist-info/WHEEL'
+2021-07-30T17:32:35,711   adding 'path-16.2.0.dist-info/top_level.txt'
+2021-07-30T17:32:35,711   adding 'path-16.2.0.dist-info/RECORD'
+2021-07-30T17:32:35,711   removing build/bdist.macosx-10.9-x86_64/wheel
+2021-07-30T17:32:35,744   Created wheel for path: filename=path-16.2.0-py3-none-any.whl size=21837 sha256=8fb5ae8a101ca7cc8e8096ef907c05a41e883e364c874f60d626a4a086542229
+2021-07-30T17:32:35,745   Stored in directory: /private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-ephem-wheel-cache-kq962xnv/wheels/5b/ea/22/4970534f02a9d568e6974a92d1bae7d30c249a02f02bf5677e
+2021-07-30T17:32:35,747 Successfully built path
+2021-07-30T17:32:35,869 Installing collected packages: path
+2021-07-30T17:32:35,871   Running command git rev-parse HEAD
+2021-07-30T17:32:35,878   983f8254e7767a3b13f54633157d7f24ad106649
+
+2021-07-30T17:32:35,909 Successfully installed path-16.2.0
+2021-07-30T17:32:35,915 Removed build tracker: '/private/var/folders/ht/dj47l0fn1kzgbpmk8ksccnlm0000gn/T/pip-req-tracker-84q7d_5y'
