@@ -1,0 +1,15 @@
+{% extends 'share/base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}Register{% endblock %}
+{% block style %}
+<style>
+</style>
+{% endblock %}
+{% block content %}
+	<form method="POST">{% csrf_token %}
+		ID: {{ form.username }}<br>
+		PW: {{ form.password1 }}<br>
+		Confirm PW: {{ form.password2 }}<br>
+		<input type="submit" value="Register">
+	</form>
+{% endblock %}

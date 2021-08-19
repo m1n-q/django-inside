@@ -1,0 +1,27 @@
+{% extends 'share/base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block title %}Articles{% endblock %}
+{% block content %}
+{% include 'share/nav.html' %}
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Synopsis</th>
+		<th>Author</th>
+		<th>Created At</th>
+	</tr>
+
+	{% for article in articles %}
+	<tr>
+		<td>{{ article.title }}</td>
+		<td>{{ article.synopsis }}</td>
+		<td>{{ article.author }}</td>
+		<td>{{ article.created | date:"SHORT_DATETIME_FORMAT" }}</td>
+		<td><a href="{% url 'ex00:article-detail' article.title|slugify %}">Show Detail</a></td>
+	</tr>
+	{% empty %}
+		No articles yet.
+	{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'share/base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block title %}{{ user }} : Favourites{% endblock %}
+{% block content %}
+{% include 'share/nav.html' %}
+<table>
+	<tr>
+		<th>Title</th>
+	</tr>
+
+	{% for article in articles %}
+	<tr>
+		<td>{{ article }}</td>
+		<td><a href="{# url 'ex00:article-detail' article.title #}">Show Detail</a></td>
+	</tr>
+	{% empty %}
+		<td>No articles yet.</td>
+	{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'share/base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}Add{% endblock %}
+{% block style %}
+<style>
+</style>
+{% endblock %}
+{% block content %}
+	<form method="POST">{% csrf_token %}
+		{{form}}
+	</form>
+{% endblock %}
