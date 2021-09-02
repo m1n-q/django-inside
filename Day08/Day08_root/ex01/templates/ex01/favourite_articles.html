@@ -1,0 +1,31 @@
+{% extends 'share/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}{{ user }} : Favourites{% endblock %}
+{% block heading %}
+	Favourites
+{% endblock %}
+{% block sub_heading %}
+	{{ user.username }}
+{% endblock %}
+{% block content %}
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th style="width:3%">	</th>
+	</tr>
+	{% for article in articles %}
+	<tr>
+		<td><a class="btn-outline-secondary" href="{% url 'ex01:article-detail' article.article.slug %}">{{ article }}</a></td>
+		<td>
+			<form action="{% url 'ex01:del-favourite' article.id %}" method="POST"> {% csrf_token %}
+				<input type="hidden" name="userfavouritearticle" value="{{ article.id }}">
+				<input class="btn btn-danger" type="submit" value="DEL">
+			</form>
+		</td>
+	</tr>
+	{% empty %}
+		<td>No articles yet.</td>
+	{% endfor %}
+</table>
+{% endblock %}

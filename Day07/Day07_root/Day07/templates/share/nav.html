@@ -1,8 +1,55 @@
-<nav>
-	{% if user.is_authenticated %}
-	Hello, {{ user }}
-	<a href="{% url 'ex00:logout' %}">Log Out</a>
-	{% else %}
-	<a href="{% url 'ex00:login' %}">Log In</a>
-	{% endif %}
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+
+	<div class="collapse navbar-collapse">
+		{% if user.is_authenticated %}
+		<ul class="navbar-nav" style="margin-left: 1vw;">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'ex00:home' %}">🏠</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:show-articles' %}">Articles</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:favourite-articles' %}">Favourites</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:publish' %}">Publications</a>
+			</li>
+		</ul>
+
+		<ul class="navbar-nav ms-auto" style="margin-right: 1vw;">
+			<span class="navbar-text">Logged as {{ user }}</span>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:logout' %}">Log Out</a>
+			</li>
+		</ul>
+		{% else %}
+
+		<ul class="navbar-nav" style="margin-left: 1vw;">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'ex00:home' %}">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:show-articles' %}">Articles</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:register' %}">Register</a>
+			</li>
+
+		</ul>
+		<ul class="navbar-nav ms-auto" style="margin-right: 1vw;">
+			<form class="d-flex" method="POST" action="{% url 'ex00:login' %}"> {% csrf_token %}
+				<input class="form-control me-2" type="text" placeholder="username" name='username'>
+				<input class="form-control me-2" type="password" placeholder="password" name='password'>
+				<button class="btn btn-outline-primary" type="submit">Login</button>
+			</form>
+		</ul>
+
+
+		{% endif %}
+
+	</div>
 </nav>
+
+
+

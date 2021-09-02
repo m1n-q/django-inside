@@ -1,0 +1,53 @@
+{% extends 'share/base.html' %}
+{% load bootstrap4 %}
+{% block title %}Detail : {{article}}{% endblock %}
+{% block heading %}Detail {% endblock %}
+{% block sub_heading %} {{article.title}}{% endblock %}
+{% block content %}
+<table class="table table-sm">
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th  class="ms-auto">Created At</th>
+
+	</tr>
+	<tr class="table-secondary">
+		<td>{{ article.title }}</td>
+		<td>{{ article.author }}</td>
+		<td>{{ article.created | date:"SHORT_DATETIME_FORMAT" }}</td>
+
+	</tr>
+</table>
+
+<table class="table">
+	<tr>
+		<th>Synopsis</th>
+	</tr>
+	<tr class="table-secondary">
+		<td>{{ article.synopsis }}</td>
+	</tr>
+</table>
+
+<table class="table">
+	<tr>
+		<th>Content</th>
+	</tr>
+	<tr class="table-info">
+		<td>{{ article.content }}</td>
+	</tr>
+</table>
+{% if not is_user_favourite %}
+	<form action="{% url 'ex01:add-favourite' %}" method="POST"> {% csrf_token %}
+	{% bootstrap_form form %}
+	{% bootstrap_button "★" button_type="submit" button_class="btn-outline-info" %}
+	</form>
+{% else %}
+	<form action="{% url 'ex01:del-favourite' is_user_favourite.id %}" method="POST"> {% csrf_token %}
+	{% bootstrap_form form %}
+	{% bootstrap_button "★" button_type="submit" button_class="btn-info" %}
+	</form>
+{% endif %}
+
+
+
+{% endblock %}

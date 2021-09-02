@@ -1,0 +1,8 @@
+Django>=3.2.6
+psycopg2
+django-bootstrap4
+bootstrap4
+pillow
+channels
+channels-redis
+redis-server

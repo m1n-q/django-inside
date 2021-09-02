@@ -1,0 +1,14 @@
+{% extends 'share/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Articles{% endblock %}
+{% block content %}
+{% include 'share/nav.html' %}
+<form method="POST" action="{% url 'ex00:tmpreciever' %}">
+	{% csrf_token %}
+	{{form}}
+	<input type="submit" value="send">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+[2021-08-25 12:31:12 +0900] [1768] [INFO] Starting gunicorn 20.1.0
+[2021-08-25 12:31:12 +0900] [1768] [INFO] Listening at: http://127.0.0.1:8000 (1768)
+[2021-08-25 12:31:12 +0900] [1768] [INFO] Using worker: sync
+[2021-08-25 12:31:12 +0900] [1770] [INFO] Booting worker with pid: 1770
+[2021-08-25 12:31:12 +0900] [1771] [INFO] Booting worker with pid: 1771
+[2021-08-25 12:31:12 +0900] [1772] [INFO] Booting worker with pid: 1772
+[2021-08-25 12:31:12 +0900] [1773] [INFO] Booting worker with pid: 1773
+[2021-08-25 12:31:12 +0900] [1774] [INFO] Booting worker with pid: 1774
+[2021-08-25 12:31:12 +0900] [1775] [INFO] Booting worker with pid: 1775
+[2021-08-25 12:31:12 +0900] [1776] [INFO] Booting worker with pid: 1776
+[2021-08-25 12:31:12 +0900] [1777] [INFO] Booting worker with pid: 1777
+[2021-08-25 12:31:12 +0900] [1778] [INFO] Booting worker with pid: 1778
+[2021-08-25 03:48:57 +0000] [1775] [INFO] Worker exiting (pid: 1775)
+[2021-08-25 03:48:57 +0000] [1774] [INFO] Worker exiting (pid: 1774)
+[2021-08-25 03:48:57 +0000] [1770] [INFO] Worker exiting (pid: 1770)
+[2021-08-25 03:48:57 +0000] [1772] [INFO] Worker exiting (pid: 1772)
+[2021-08-25 03:48:57 +0000] [1777] [INFO] Worker exiting (pid: 1777)
+[2021-08-25 12:48:57 +0900] [1768] [INFO] Handling signal: term
+[2021-08-25 03:48:57 +0000] [1778] [INFO] Worker exiting (pid: 1778)
+[2021-08-25 03:48:57 +0000] [1771] [INFO] Worker exiting (pid: 1771)
+[2021-08-25 03:48:57 +0000] [1776] [INFO] Worker exiting (pid: 1776)
+[2021-08-25 03:48:57 +0000] [1773] [INFO] Worker exiting (pid: 1773)
+[2021-08-25 12:48:57 +0900] [1768] [WARNING] Worker with pid 1775 was terminated due to signal 15
+[2021-08-25 12:48:57 +0900] [1768] [WARNING] Worker with pid 1772 was terminated due to signal 15
+[2021-08-25 12:48:57 +0900] [1768] [WARNING] Worker with pid 1770 was terminated due to signal 15
+[2021-08-25 12:48:57 +0900] [1768] [INFO] Shutting down: Master
+[2021-08-25 23:41:11 +0900] [10877] [INFO] Starting gunicorn 20.1.0
+[2021-08-25 23:41:11 +0900] [10877] [INFO] Listening at: http://127.0.0.1:8000 (10877)
+[2021-08-25 23:41:11 +0900] [10877] [INFO] Using worker: sync
+[2021-08-25 23:41:11 +0900] [10879] [INFO] Booting worker with pid: 10879
+[2021-08-25 23:41:11 +0900] [10880] [INFO] Booting worker with pid: 10880
+[2021-08-25 23:41:11 +0900] [10881] [INFO] Booting worker with pid: 10881
+[2021-08-25 23:41:12 +0900] [10882] [INFO] Booting worker with pid: 10882
+[2021-08-25 23:41:12 +0900] [10883] [INFO] Booting worker with pid: 10883
+[2021-08-25 23:41:12 +0900] [10884] [INFO] Booting worker with pid: 10884
+[2021-08-25 23:41:12 +0900] [10885] [INFO] Booting worker with pid: 10885
+[2021-08-25 23:41:12 +0900] [10886] [INFO] Booting worker with pid: 10886
+[2021-08-25 23:41:12 +0900] [10887] [INFO] Booting worker with pid: 10887
+[2021-08-26 00:12:06 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10879)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10880)
+[2021-08-25 15:12:07 +0000] [10879] [INFO] Worker exiting (pid: 10879)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10881)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10882)
+[2021-08-25 15:12:07 +0000] [10880] [INFO] Worker exiting (pid: 10880)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10883)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10884)
+[2021-08-25 15:12:07 +0000] [10882] [INFO] Worker exiting (pid: 10882)
+[2021-08-25 15:12:07 +0000] [10883] [INFO] Worker exiting (pid: 10883)
+[2021-08-25 15:12:07 +0000] [10881] [INFO] Worker exiting (pid: 10881)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10885)
+[2021-08-25 15:12:07 +0000] [10884] [INFO] Worker exiting (pid: 10884)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10886)
+[2021-08-26 00:12:07 +0900] [10877] [CRITICAL] WORKER TIMEOUT (pid:10887)
+[2021-08-25 15:12:07 +0000] [10885] [INFO] Worker exiting (pid: 10885)
+[2021-08-25 15:12:07 +0000] [10887] [INFO] Worker exiting (pid: 10887)
+[2021-08-25 15:12:07 +0000] [10886] [INFO] Worker exiting (pid: 10886)
+[2021-08-26 00:12:08 +0900] [11498] [INFO] Booting worker with pid: 11498
+[2021-08-26 00:12:08 +0900] [10877] [WARNING] Worker with pid 10881 was terminated due to signal 9
+[2021-08-26 00:12:08 +0900] [10877] [WARNING] Worker with pid 10882 was terminated due to signal 9
+[2021-08-26 00:12:08 +0900] [10877] [WARNING] Worker with pid 10880 was terminated due to signal 9
+[2021-08-26 00:12:08 +0900] [10877] [WARNING] Worker with pid 10885 was terminated due to signal 9
+[2021-08-26 00:12:08 +0900] [10877] [WARNING] Worker with pid 10883 was terminated due to signal 9
+[2021-08-26 00:12:08 +0900] [10877] [WARNING] Worker with pid 10879 was terminated due to signal 9
+[2021-08-26 00:12:08 +0900] [11499] [INFO] Booting worker with pid: 11499
+[2021-08-26 00:12:08 +0900] [11500] [INFO] Booting worker with pid: 11500
+[2021-08-26 00:12:08 +0900] [11501] [INFO] Booting worker with pid: 11501
+[2021-08-26 00:12:08 +0900] [11502] [INFO] Booting worker with pid: 11502
+[2021-08-26 00:12:08 +0900] [11503] [INFO] Booting worker with pid: 11503
+[2021-08-26 00:12:08 +0900] [11504] [INFO] Booting worker with pid: 11504
+[2021-08-26 00:12:08 +0900] [11505] [INFO] Booting worker with pid: 11505
+[2021-08-26 00:12:08 +0900] [11506] [INFO] Booting worker with pid: 11506
+[2021-08-25 15:13:41 +0000] [11504] [INFO] Worker exiting (pid: 11504)
+[2021-08-25 15:13:41 +0000] [11498] [INFO] Worker exiting (pid: 11498)
+[2021-08-25 15:13:41 +0000] [11503] [INFO] Worker exiting (pid: 11503)
+[2021-08-25 15:13:41 +0000] [11501] [INFO] Worker exiting (pid: 11501)
+[2021-08-25 15:13:41 +0000] [11499] [INFO] Worker exiting (pid: 11499)
+[2021-08-26 00:13:41 +0900] [10877] [INFO] Handling signal: term
+[2021-08-25 15:13:41 +0000] [11505] [INFO] Worker exiting (pid: 11505)
+[2021-08-25 15:13:41 +0000] [11506] [INFO] Worker exiting (pid: 11506)
+[2021-08-25 15:13:41 +0000] [11500] [INFO] Worker exiting (pid: 11500)
+[2021-08-25 15:13:41 +0000] [11502] [INFO] Worker exiting (pid: 11502)
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11504 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11501 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11500 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11499 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11498 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11505 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [WARNING] Worker with pid 11506 was terminated due to signal 15
+[2021-08-26 00:13:41 +0900] [10877] [INFO] Shutting down: Master

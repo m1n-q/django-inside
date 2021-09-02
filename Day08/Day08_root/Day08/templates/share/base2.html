@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<style>
+			body {
+ 			   background: url("{% static 'images/background.jpeg' %}");
+			}
+		</style>
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
+

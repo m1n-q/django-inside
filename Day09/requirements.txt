@@ -1,0 +1,10 @@
+django
+psycopg2
+django-bootstrap4
+bootstrap4
+setuptools
+pillow
+gunicorn
+uWSGI
+
+

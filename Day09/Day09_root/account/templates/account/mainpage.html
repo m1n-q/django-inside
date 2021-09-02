@@ -1,0 +1,103 @@
+{% extends 'share/base.html' %}
+
+{% block title %}
+	MAIN
+{% endblock %}
+
+{% block content %}
+{% if not user.is_authenticated %}
+<form action="{% url 'account:signin' %}" method="POST" id='signin-form'> {% csrf_token %}
+	{{ form.username }}
+	{{ form.password }}
+	<input type="submit" value='Sign in'>
+</form>
+<a href="{% url 'account:signup' %}">Sign Up</a>
+{% else %}
+<p id="userinfo">Logged as {{user}}</p>
+<form action="{% url 'account:signout' %}" method="POST" id='signout-form'> {% csrf_token %}
+	<input type="submit" value="Sign out">
+</form>
+{% endif %}
+{% endblock %}
+
+{% block script %}
+<script>
+	function getCookie(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+			var cookies = document.cookie.split(';');
+			for (var i = 0; i < cookies.length; i++) {
+				var cookie = jQuery.trim(cookies[i]);
+				// Does this cookie string begin with the name we want?
+				if (cookie.substring(0, name.length + 1) === (name + '=')) {
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+
+	$(document).on("submit", "#signin-form", function(event) {
+		event.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "{% url 'account:signin' %}",
+			data: {
+				'csrfmiddlewaretoken': getCookie('csrftoken'),
+				'username': $("#id_username").val(),
+				'password': $("#id_password").val(),
+				'AJAX': 'True'
+			},
+			success: function(data) {
+				$("#userinfo").html('Logged as ' + data.username);
+				$("#signin-form").attr({
+					'style':'color:blue;',
+					'action':"{% url 'account:signout' %}",
+					'id':'signout-form'
+				});
+				$("#signout-form").children().slice(1,-1).remove();
+				$("#signout-form").children().eq(0).val(getCookie('csrftoken'));
+				$("#signout-form").children().eq(-1).val('Sign out');
+			},
+			error: function() {
+				$("#userinfo").html('fail');
+			}
+		});
+	});
+
+	$(document).on("submit", "#signout-form", function (event) {
+		event.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "{% url 'account:signout' %}",
+			data: {
+				'csrfmiddlewaretoken': getCookie('csrftoken'),
+			},
+			success: function () {
+				$("#userinfo").html('LOGGED OUT');
+				{% for f in form %}
+					$("#signout-form").children().eq(-1).before('{{f}}');
+				{% endfor %}
+				$("#signout-form").children().eq(0).val(getCookie('csrftoken'));
+				$("#signout-form").children().eq(-1).val('Sign in');
+
+				$("#signout-form").attr({
+					'action':"{% url 'account:signin' %}",
+					'id':'signin-form'
+				});
+			},
+			error: function () {
+				console.log("IT WAS SIGNOUT FORM");
+			}
+		});
+	});
+
+
+</script>
+
+
+
+{% endblock %}
+
+

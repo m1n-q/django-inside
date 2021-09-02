@@ -1,0 +1,39 @@
+{% extends 'share/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Articles{% endblock %}
+{% bootstrap_css %}
+{% block heading %}Articles {% endblock %}
+{% block sub_heading %} Share your writings{% endblock %}
+{% block content %}
+
+
+
+<table class="table table-hover table-sm">
+	<tr>
+		<th style="width: 15%;">Title</th>
+		<th style="width: 70%;">Synopsis</th>
+		<th style="width: fit-content">Writer</th>
+		<th style="width: 5%;">Created At</th>
+		<th style="width: 5%;">When</th>
+	</tr>
+
+	{% for article in articles|dictsortreversed:"created" %}
+	<tr>
+		<td>{{ article.title|truncatechars:20}}</td>
+		<td>{{ article.synopsis|truncatechars:20}}</td>
+		<td>{{ article.author|truncatechars:20}}</td>
+		<td>{{ article.created|date:"SHORT_DATETIME_FORMAT" }}</td>
+		<td>{{ article.created|timesince }} ago</td>
+
+		<td><a class="btn btn-info" href="{% url 'ex01:article-detail' article.slug %}">Read</a></td>
+	</tr>
+	{% empty %}
+	<tr>
+		<td>No articles yet.</td>
+	</tr>
+	{% endfor %}
+</table>
+
+
+{% endblock %}

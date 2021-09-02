@@ -1,0 +1,61 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+
+	<div class="collapse navbar-collapse">
+		{% if user.is_authenticated %}
+		<ul class="navbar-nav" style="margin-left: 1vw;">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'ex01:home' %}">🏠</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex01:show-articles' %}">Articles</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex01:favourite-articles' %}">Favourites</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex01:publish' %}">Publications</a>
+			</li>
+		</ul>
+
+		<ul class="navbar-nav ms-auto" style="margin-right: 1vw;">
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:add-img' %}">📷</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex00:show-imgs' %}">🌄</a>
+			</li>
+			<span class="navbar-text">Logged as {{ user }}</span>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex01:logout' %}">Log Out</a>
+			</li>
+		</ul>
+		{% else %}
+
+		<ul class="navbar-nav" style="margin-left: 1vw;">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="{% url 'ex01:home' %}">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex01:show-articles' %}">Articles</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'ex01:register' %}">Register</a>
+			</li>
+
+		</ul>
+		<ul class="navbar-nav ms-auto" style="margin-right: 1vw;">
+			<form class="d-flex" method="POST" action="{% url 'ex01:login' %}"> {% csrf_token %}
+				<input class="form-control me-2" type="text" placeholder="username" name='username'>
+				<input class="form-control me-2" type="password" placeholder="password" name='password'>
+				<button class="btn btn-outline-primary" type="submit">Login</button>
+			</form>
+		</ul>
+
+
+		{% endif %}
+
+	</div>
+</nav>
+
+
+

@@ -1,0 +1,11 @@
+{% extends 'share/base2.html' %}
+{% load bootstrap4 %}
+{% block title %}
+	Add your image
+{% endblock %}
+{% block content %}
+<form enctype="multipart/form-data" method="POST">{% csrf_token %}
+	{% bootstrap_form form %}
+	<input type="submit" value="upload">
+</form>
+{% endblock %}

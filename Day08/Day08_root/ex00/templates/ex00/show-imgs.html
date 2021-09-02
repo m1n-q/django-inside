@@ -1,0 +1,10 @@
+{% extends 'share/base2.html' %}
+{% load static %}
+{% block title %}
+	IMG LIST
+{% endblock %}
+{% block content %}
+	{% for obj in object_list %}
+		<img src=/media/{{ obj.img }}>
+	{% endfor %}
+{% endblock %}
